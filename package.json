@@ -4,9 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aryanrustagi1234-ship-it/Blogify-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aryanrustagi1234-ship-it/Blogify-api/issues"
+  },
+  "homepage": "https://github.com/aryanrustagi1234-ship-it/Blogify-api#readme",
+  "dependencies": {
+    "nodemon": "^3.1.11"
+  }
 }
