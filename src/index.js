@@ -1,15 +1,22 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-const postsRouter = require('./src/routes/posts.routes');
+// ✅ Global middleware
+app.use(express.json());
 
-app.get('/home', (req, res) => {
-  res.send('Hey, welcome to Blogify API!');
+// ✅ Import routes
+const postsRouter = require("./src/routes/posts.routes");
+
+// ✅ Health / home route
+app.get("/home", (req, res) => {
+  res.send("Hey, welcome to Blogify API!");
 });
 
-// Mount the posts router
-app.use('/api/v1/posts', postsRouter);
+// ✅ Mount routes
+app.use("/api/v1/posts", postsRouter);
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+// ✅ Start server
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
