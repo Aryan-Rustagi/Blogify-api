@@ -1,15 +1,16 @@
 // src/controllers/posts.controller.js
 
-const getAllPosts = (req, res) => {
-  // ✅ Move whatever logic you had inside router.get('/', ...) here
+exports.getPostById = async (req, res) => {
+  try {
+    const postId = req.params.postId;
 
-  // For now, a simple working response is fine (as per assignment)
-  return res.status(200).json({
-    message: "Route handled by postController.getAllPosts",
-  });
+    return res.status(200).json({
+      message: `Fetching data for post with ID: ${postId}`,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: 'Something went wrong',
+      error: error.message,
+    });
+  }
 };
-
-module.exports = {
-  getAllPosts,
-};
-

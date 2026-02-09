@@ -1,10 +1,11 @@
-// src/routes/posts.routes.js
-
-const express = require("express");
+const express = require('express');
 const router = express.Router();
+const postController = require('../controllers/posts.controller');
 
-const postController = require("../controllers/posts.controller.js");
+// Existing routes
+router.get('/', postController.getAllPosts);
 
-router.get("/", postController.getAllPosts);
+// 👇 Add this BELOW '/' route
+router.get('/:postId', postController.getPostById);
 
 module.exports = router;
