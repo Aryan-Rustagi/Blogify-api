@@ -1,16 +1,39 @@
 // src/controllers/posts.controller.js
 
-exports.getPostById = async (req, res) => {
+const Post = require('../models/post.model');
+
+// @desc    Get all posts
+// @route   GET /api/v1/posts
+// @access  Public
+exports.getAllPosts = async (req, res, next) => {
   try {
-    const postId = req.params.postId;
+    const posts = await Post.find();
 
     return res.status(200).json({
-      message: `Fetching data for post with ID: ${postId}`,
+      success: true,
+      data: {
+        posts,
+      },
     });
   } catch (error) {
-    return res.status(500).json({
-      message: 'Something went wrong',
-      error: error.message,
+    next(error);
+  }
+};
+
+// @desc    Get single post
+// @route   GET /api/v1/posts/:id
+// @access  Public
+exports.getPostById = async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    return res.status(200).json({
+      success: true,
+      data: {
+        post,
+      },
     });
+  } catch (error) {
+    next(error);
   }
 };
