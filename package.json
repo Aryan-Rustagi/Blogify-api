@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/aryanrustagi1234-ship-it/Blogify-api#readme",
   "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1",
     "nodemon": "^3.1.11"
   }
 }
